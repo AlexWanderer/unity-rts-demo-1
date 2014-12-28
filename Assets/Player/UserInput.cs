@@ -58,6 +58,20 @@ public class UserInput : MonoBehaviour {
             player.hud.SetCursorState(CursorState.PanUp);
         }
 
+        // Direction keys
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            movement.z += ResourceManager.ScrollSpeed;
+        }
+        if (Input.GetKey(KeyCode.DownArrow)) {
+            movement.z -= ResourceManager.ScrollSpeed;
+        }
+        if (Input.GetKey(KeyCode.RightArrow)) {
+            movement.x += ResourceManager.ScrollSpeed;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow)) {
+            movement.x -= ResourceManager.ScrollSpeed;
+        }
+
         // Make sure movement is in the direction the camera is pointing
         // but ignore the vertical tilt of the camera to get sensible scrolling
         movement = Camera.main.transform.TransformDirection(movement);
